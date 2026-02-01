@@ -53,25 +53,25 @@ const sectors = [
   {
     title: "Maritiem & Scheepsbouw",
     description: "Ervaren vakmensen voor scheepswerven en maritieme projecten wereldwijd",
-    image: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&q=80",
+    image: "/images/portfolio/portfolio-7.jpg",
     href: "/sectoren/maritiem",
   },
   {
     title: "Jachtbouw",
     description: "Specialisten voor luxe jachten en superyachts van wereldklasse",
-    image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80",
+    image: "/images/portfolio/portfolio-2.jpg",
     href: "/sectoren/jachtbouw",
   },
   {
     title: "Offshore",
     description: "Gekwalificeerd personeel voor offshore installaties en energie projecten",
-    image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=800&q=80",
+    image: "/images/portfolio/portfolio-8.jpg",
     href: "/sectoren/offshore",
   },
   {
     title: "Afbouw & Interieur",
     description: "Stukadoors en afbouwspecialisten voor hoogwaardige projecten",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    image: "/images/portfolio/portfolio-5.jpg",
     href: "/sectoren/afbouw",
   },
 ];
@@ -466,8 +466,8 @@ export default function Home() {
               {/* Main image */}
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
-                  alt="Vakman aan het werk"
+                  src="/images/portfolio/portfolio-7.jpg"
+                  alt="Rotterdam maritiem"
                   className="w-full h-[400px] object-cover"
                 />
               </div>

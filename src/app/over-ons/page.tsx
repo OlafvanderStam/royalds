@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -72,20 +73,22 @@ const certifications = [
 
 const team = [
   {
-    name: "Directie",
-    description: "Ervaren ondernemers met jarenlange achtergrond in de maritieme sector en uitzendbranche.",
+    name: "Richard",
+    role: "Directie",
+    description: "Ervaren ondernemer met jarenlange achtergrond in de maritieme sector.",
+    image: "/images/team/richard-1.jpg",
   },
   {
-    name: "Account Managers",
+    name: "Roel",
+    role: "Operations",
     description: "Uw vaste aanspreekpunt voor alle vragen rondom personeel en projecten.",
+    image: "/images/team/roel-1.jpg",
   },
   {
-    name: "Recruiters",
-    description: "Specialisten in het vinden en selecteren van de beste vakmensen.",
-  },
-  {
-    name: "Backoffice",
-    description: "Zorgt voor een vlekkeloze administratie en ondersteuning.",
+    name: "Glenn",
+    role: "Recruitment",
+    description: "Specialist in het vinden en selecteren van de beste vakmensen.",
+    image: "/images/team/glenn-1.jpg",
   },
 ];
 
@@ -94,7 +97,16 @@ export default function OverOnsPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative bg-navy pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/portfolio/portfolio-3.jpg"
+            alt="Waalbrug Nijmegen"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/90 to-navy opacity-95" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-widest text-teal-light mb-4">
@@ -224,6 +236,45 @@ export default function OverOnsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="bg-sand py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm font-medium uppercase tracking-widest text-teal mb-2">
+              Ons Team
+            </p>
+            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+              De mensen achter Royal DS
+            </h2>
+            <p className="mt-4 text-grey max-w-2xl mx-auto">
+              Ons team staat klaar om u te helpen met al uw personeelsvragen.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {team.map((member) => (
+              <div key={member.name} className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                <div className="relative h-64">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="font-heading text-xl font-semibold text-navy">
+                    {member.name}
+                  </h3>
+                  <p className="text-teal font-medium text-sm mt-1">{member.role}</p>
+                  <p className="mt-3 text-grey text-sm">{member.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

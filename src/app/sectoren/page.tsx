@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ const sectors = [
     stats: { vakmensen: "150+", projecten: "50+", landen: "8" },
     roles: ["Scheepslassers", "Plaatwerkers", "Pijpfitters", "Elektriciens", "Monteurs"],
     color: "teal",
+    image: "/images/portfolio/portfolio-7.jpg",
   },
   {
     title: "Jachtbouw",
@@ -22,6 +24,7 @@ const sectors = [
     stats: { vakmensen: "80+", projecten: "30+", landen: "5" },
     roles: ["Interieurbouwers", "Meubelmakers", "Lassers", "Afbouwers", "Stoffeerders"],
     color: "orange",
+    image: "/images/portfolio/portfolio-2.jpg",
   },
   {
     title: "Offshore",
@@ -30,6 +33,7 @@ const sectors = [
     stats: { vakmensen: "100+", projecten: "25+", landen: "6" },
     roles: ["Offshore monteurs", "Lassers", "Riggers", "Elektriciens", "Technici"],
     color: "teal",
+    image: "/images/portfolio/portfolio-8.jpg",
   },
   {
     title: "Afbouw & Interieur",
@@ -38,6 +42,7 @@ const sectors = [
     stats: { vakmensen: "70+", projecten: "40+", landen: "3" },
     roles: ["Stukadoors", "Tegelzetters", "Schilders", "Vloerleggers", "Afbouwers"],
     color: "orange",
+    image: "/images/portfolio/portfolio-5.jpg",
   },
 ];
 
@@ -141,17 +146,16 @@ export default function SectorenPage() {
                 </div>
 
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className={`rounded-2xl p-8 lg:p-12 ${
-                    sector.color === "teal" ? "bg-teal/10" : "bg-orange/10"
-                  }`}>
-                    <div className="aspect-video bg-white/50 rounded-xl flex items-center justify-center">
-                      <span className="text-6xl">
-                        {sector.slug === "maritiem" && "🚢"}
-                        {sector.slug === "jachtbouw" && "⛵"}
-                        {sector.slug === "offshore" && "🌊"}
-                        {sector.slug === "afbouw" && "🏗️"}
-                      </span>
-                    </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-video">
+                    <Image
+                      src={sector.image}
+                      alt={sector.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className={`absolute inset-0 ${
+                      sector.color === "teal" ? "bg-teal/20" : "bg-orange/20"
+                    }`} />
                   </div>
                 </div>
               </div>

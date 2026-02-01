@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,11 +20,7 @@ const diensten = [
       "Wereldwijde inzetbaarheid",
       "24/7 ondersteuning",
     ],
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
+    image: "/images/portfolio/portfolio-7.jpg",
   },
   {
     id: "werving",
@@ -37,11 +34,7 @@ const diensten = [
       "Begeleiding tijdens onboarding",
       "Garantieregeling",
     ],
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
+    image: "/images/portfolio/portfolio-1.jpg",
   },
   {
     id: "projecten",
@@ -55,11 +48,7 @@ const diensten = [
       "Kwaliteitscontrole",
       "Rapportage en communicatie",
     ],
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-      </svg>
-    ),
+    image: "/images/portfolio/portfolio-2.jpg",
   },
   {
     id: "detachering",
@@ -73,11 +62,7 @@ const diensten = [
       "Flexibele opzegmogelijkheden",
       "Overname naar vast dienstverband mogelijk",
     ],
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-      </svg>
-    ),
+    image: "/images/portfolio/portfolio-8.jpg",
   },
 ];
 
@@ -109,7 +94,16 @@ export default function DienstenPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative bg-navy pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/portfolio/portfolio-4.jpg"
+            alt="Kantoorinterieur"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/90 to-navy opacity-95" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-widest text-teal-light mb-4">
@@ -171,9 +165,14 @@ export default function DienstenPage() {
                     </svg>
                   </Link>
                 </div>
-                <div className={`${index % 2 === 1 ? "lg:order-1" : ""} bg-sand rounded-2xl p-8 lg:p-12`}>
-                  <div className="aspect-video bg-navy-light/20 rounded-xl flex items-center justify-center">
-                    <div className="text-6xl">{dienst.icon}</div>
+                <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <div className="relative aspect-video rounded-2xl overflow-hidden">
+                    <Image
+                      src={dienst.image}
+                      alt={dienst.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </div>

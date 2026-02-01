@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -68,18 +69,21 @@ const testimonials = [
     name: "Jan de Vries",
     role: "Scheepslasser",
     years: "5 jaar via Royal DS",
+    image: "/images/testimonials/testimonials-1.jpg",
   },
   {
     quote: "De projecten zijn uitdagend en de begeleiding is persoonlijk. Voelt als een familie.",
     name: "Piotr Kowalski",
     role: "Interieurbouwer",
     years: "3 jaar via Royal DS",
+    image: "/images/testimonials/testimonials-2.jpg",
   },
   {
     quote: "Goede voorwaarden en interessant werk aan superjachten. Kan het iedereen aanraden.",
     name: "Andrei Popescu",
     role: "TIG Lasser",
     years: "4 jaar via Royal DS",
+    image: "/images/testimonials/testimonials-3.jpg",
   },
 ];
 
@@ -88,7 +92,16 @@ export default function VakmensenPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative bg-navy pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/portfolio/portfolio-7.jpg"
+            alt="Rotterdam skyline"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/90 to-navy opacity-95" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-widest text-teal-light mb-4">
@@ -215,10 +228,20 @@ export default function VakmensenPage() {
                 <p className="text-silver-light italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
-                <div className="mt-6 pt-4 border-t border-white/10">
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-silver">{testimonial.role}</p>
-                  <p className="text-xs text-teal-light mt-1">{testimonial.years}</p>
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">{testimonial.name}</p>
+                    <p className="text-sm text-silver">{testimonial.role}</p>
+                    <p className="text-xs text-teal-light mt-1">{testimonial.years}</p>
+                  </div>
                 </div>
               </div>
             ))}

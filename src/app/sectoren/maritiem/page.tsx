@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,7 +48,16 @@ export default function MaritiemPage() {
     <div className="flex flex-col">
       {/* Hero */}
       <section className="relative bg-navy pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/portfolio/portfolio-7.jpg"
+            alt="Rotterdam maritieme haven"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/90 to-navy opacity-95" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <Link href="/sectoren" className="inline-flex items-center text-teal-light hover:text-orange mb-6 transition-colors">
             <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,8 +152,13 @@ export default function MaritiemPage() {
                 ))}
               </ul>
             </div>
-            <div className="bg-navy rounded-2xl p-8 text-center">
-              <span className="text-8xl">🚢</span>
+            <div className="relative rounded-2xl overflow-hidden h-[300px]">
+              <Image
+                src="/images/portfolio/portfolio-3.jpg"
+                alt="Waalbrug Nijmegen"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

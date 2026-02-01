@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 const contactInfo = {
@@ -69,7 +70,16 @@ function ContactContent() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative bg-navy pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/portfolio/portfolio-4.jpg"
+            alt="Kantoor"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light/90 to-navy opacity-95" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-widest text-teal-light mb-4">
